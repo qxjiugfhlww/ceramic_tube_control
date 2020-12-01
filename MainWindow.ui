@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>600</height>
+    <width>1826</width>
+    <height>821</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1826</width>
+    <height>821</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -32,9 +38,6 @@
     </property>
     <item>
      <widget class="QFrame" name="Menu">
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(35, 35, 35);</string>
-      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -43,7 +46,7 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="spacing">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -129,7 +132,7 @@ QPushButton:hover {
       </layout>
      </widget>
     </item>
-    <item>
+    <item alignment="Qt::AlignTop">
      <widget class="QFrame" name="Content">
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -162,240 +165,605 @@ QPushButton:hover {
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_12">
-          <item>
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item alignment="Qt::AlignLeft|Qt::AlignTop">
            <widget class="QStackedWidget" name="stackedWidget_2">
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="start_page">
-             <widget class="QLabel" name="label_22">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>20</y>
-                <width>91</width>
-                <height>31</height>
-               </rect>
+             <layout class="QVBoxLayout" name="verticalLayout_2" stretch="">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Подключение</string>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-             </widget>
-             <widget class="QLabel" name="label_23">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>60</y>
-                <width>91</width>
-                <height>31</height>
-               </rect>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>IP камеры</string>
+              <property name="rightMargin">
+               <number>0</number>
               </property>
-             </widget>
-             <widget class="QLabel" name="label_24">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>110</y>
-                <width>161</width>
-                <height>31</height>
-               </rect>
+              <property name="bottomMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Угол поворота между кадрами</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_25">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>160</y>
-                <width>181</width>
-                <height>31</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Сигнал на начало съёмки, пин №</string>
-              </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_3">
-              <property name="geometry">
-               <rect>
-                <x>90</x>
-                <y>60</y>
-                <width>181</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_4">
-              <property name="geometry">
-               <rect>
-                <x>190</x>
-                <y>110</y>
-                <width>81</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_5">
-              <property name="geometry">
-               <rect>
-                <x>210</x>
-                <y>160</y>
-                <width>61</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
+             </layout>
             </widget>
             <widget class="QWidget" name="settings_page">
-             <widget class="QLabel" name="label_26">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>20</y>
-                <width>111</width>
-                <height>20</height>
-               </rect>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Количество срезов</string>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_6">
-              <property name="geometry">
-               <rect>
-                <x>150</x>
-                <y>20</y>
-                <width>41</width>
-                <height>31</height>
-               </rect>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
-             <widget class="QLabel" name="label_27">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>70</y>
-                <width>131</width>
-                <height>31</height>
-               </rect>
+              <property name="rightMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Минимальное качество</string>
+              <property name="bottomMargin">
+               <number>0</number>
               </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_7">
-              <property name="geometry">
-               <rect>
-                <x>150</x>
-                <y>70</y>
-                <width>41</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_28">
-              <property name="geometry">
-               <rect>
-                <x>20</x>
-                <y>160</y>
-                <width>81</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Допуски</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_29">
-              <property name="geometry">
-               <rect>
-                <x>60</x>
-                <y>200</y>
-                <width>61</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Диаметр  ±</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_30">
-              <property name="geometry">
-               <rect>
-                <x>60</x>
-                <y>240</y>
-                <width>61</width>
-                <height>21</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Кривизна ±</string>
-              </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_8">
-              <property name="geometry">
-               <rect>
-                <x>130</x>
-                <y>190</y>
-                <width>41</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QTextEdit" name="textEdit_9">
-              <property name="geometry">
-               <rect>
-                <x>130</x>
-                <y>230</y>
-                <width>41</width>
-                <height>31</height>
-               </rect>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_31">
-              <property name="geometry">
-               <rect>
-                <x>180</x>
-                <y>200</y>
-                <width>21</width>
-                <height>16</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>%</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_32">
-              <property name="geometry">
-               <rect>
-                <x>180</x>
-                <y>240</y>
-                <width>21</width>
-                <height>16</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>%</string>
-              </property>
-             </widget>
-             <widget class="QLabel" name="label_33">
-              <property name="geometry">
-               <rect>
-                <x>200</x>
-                <y>80</y>
-                <width>16</width>
-                <height>16</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>%</string>
-              </property>
-             </widget>
+              <item>
+               <widget class="QFrame" name="frame_14">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_17">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QFrame" name="frame_29">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_21">
+                    <property name="spacing">
+                     <number>1</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QPushButton" name="score_btn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid;
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Контроль качества</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="connection_btn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid;
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Контроль качества</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QStackedWidget" name="stackedWidget">
+                   <property name="currentIndex">
+                    <number>1</number>
+                   </property>
+                   <widget class="QWidget" name="connection_page">
+                    <layout class="QVBoxLayout" name="verticalLayout_19">
+                     <item>
+                      <widget class="QLabel" name="label_22">
+                       <property name="text">
+                        <string>Подключение</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_36">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_26">
+                        <item>
+                         <widget class="QLabel" name="label_23">
+                          <property name="maximumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>IP камеры</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_3">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_38">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_28">
+                        <item>
+                         <widget class="QLabel" name="label_24">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Угол поворота между кадрами</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_4">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_37">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_27">
+                        <item>
+                         <widget class="QLabel" name="label_25">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Сигнал на начало съёмки, пин №</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QTextEdit" name="textEdit_5">
+                          <property name="maximumSize">
+                           <size>
+                            <width>200</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="score_page">
+                    <layout class="QVBoxLayout" name="verticalLayout_18">
+                     <item>
+                      <widget class="QFrame" name="frame_15">
+                       <property name="maximumSize">
+                        <size>
+                         <width>300</width>
+                         <height>150</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_11">
+                        <item>
+                         <widget class="QFrame" name="frame_31">
+                          <property name="maximumSize">
+                           <size>
+                            <width>300</width>
+                            <height>150</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_15">
+                           <item>
+                            <widget class="QFrame" name="frame_32">
+                             <property name="maximumSize">
+                              <size>
+                               <width>300</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_22">
+                              <item>
+                               <widget class="QLabel" name="label_43">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>150</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Диаметр  ±</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="diametr_inp_3">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>30</height>
+                                 </size>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="label_44">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>%</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_33">
+                             <property name="maximumSize">
+                              <size>
+                               <width>300</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_23">
+                              <item>
+                               <widget class="QLabel" name="label_45">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>100</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Кривизна ±</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="curvature_inp_3">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>30</height>
+                                 </size>
+                                </property>
+                                <property name="lineWrapMode">
+                                 <enum>QTextEdit::NoWrap</enum>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="label_46">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>50</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>%</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_30">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_20">
+                        <item>
+                         <widget class="QLabel" name="label_42">
+                          <property name="maximumSize">
+                           <size>
+                            <width>100</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="text">
+                           <string>Допуски</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_16">
+                       <property name="maximumSize">
+                        <size>
+                         <width>300</width>
+                         <height>150</height>
+                        </size>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_16">
+                        <item>
+                         <widget class="QFrame" name="frame_34">
+                          <property name="maximumSize">
+                           <size>
+                            <width>300</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_24">
+                           <item>
+                            <widget class="QLabel" name="label_47">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>100</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Количество срезов</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QTextEdit" name="slices_amount_inp_3">
+                             <property name="enabled">
+                              <bool>true</bool>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="layoutDirection">
+                              <enum>Qt::LeftToRight</enum>
+                             </property>
+                             <property name="autoFillBackground">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QFrame" name="frame_35">
+                          <property name="maximumSize">
+                           <size>
+                            <width>300</width>
+                            <height>50</height>
+                           </size>
+                          </property>
+                          <property name="layoutDirection">
+                           <enum>Qt::LeftToRight</enum>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_25">
+                           <item>
+                            <widget class="QLabel" name="label_48">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>Минимальное качество</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QTextEdit" name="min_quiality_inp_3">
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="label_49">
+                             <property name="maximumSize">
+                              <size>
+                               <width>50</width>
+                               <height>50</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>%</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="control_page">
              <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -410,6 +778,12 @@ QPushButton:hover {
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
                   <widget class="QScrollArea" name="scrollArea">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>300</height>
+                    </size>
+                   </property>
                    <property name="widgetResizable">
                     <bool>true</bool>
                    </property>
@@ -418,12 +792,31 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>710</width>
-                      <height>326</height>
+                      <width>1784</width>
+                      <height>298</height>
                      </rect>
                     </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_10"/>
                    </widget>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QWidget" name="widget" native="true">
+                   <layout class="QHBoxLayout" name="horizontalLayout">
+                    <item>
+                     <widget class="QLabel" name="label">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap>../../baddots_Moment.jpg</pixmap>
+                      </property>
+                      <property name="scaledContents">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>

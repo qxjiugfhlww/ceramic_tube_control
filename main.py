@@ -18,6 +18,10 @@ import matplotlib.patches as patches
 import matplotlib
 matplotlib.use('QT5Agg')
 
+from matplotlib.patches import Circle, Wedge, Polygon
+from matplotlib.collections import PatchCollection
+
+
 import matplotlib.pylab as plt
 
 from matplotlib.backends.qt_compat import QtCore, QtWidgets, is_pyqt5
@@ -57,6 +61,10 @@ from copy import copy
 import cv2
 import numpy as np
 
+import stapipy as st
+
+import qimage2ndarray
+
 from gui import Ui_MainWindow
 #from ui_functions import *
 
@@ -77,7 +85,11 @@ class MainWindow(QMainWindow):
 
         self.ui.control_btn.clicked.connect(self.plot1)
 
+        self.ui.calibration_btn.clicked.connect(self.camera)
+
         self.show()
+
+        self.showMaximized()
 
     def normalize(self, coord):
         return Coord(
@@ -534,7 +546,8 @@ class MainWindow(QMainWindow):
             camera = [0, 1, 5]
             laser = [0, 5, 5]
 
-            reddots_calib = [[0,0,0],[0,0.5,0.5]] if self.ui.reddot1_inp.text() =='' else [list(map(int, self.ui.reddot1_inp.text().split(","))),  list(map(int, float(self.ui.reddot2_inp.text().split(","))))   ] #[[0,0,0],[0,0.5,0.5]]
+            # точки лазера для подсчета уравнения его плоскости в XYZ
+            reddots_calib = [[0,0,0],[0,0.5,0.5]] if self.ui.reddot1_inp.text() =='' else [list(map(float, self.ui.reddot1_inp.text().split(","))),  list(map(float, self.ui.reddot2_inp.text().split(",")))   ] #[[0,0,0],[0,0.5,0.5]]
 
             radiuses_amount = 10
             reddots = []
@@ -543,16 +556,28 @@ class MainWindow(QMainWindow):
 
             tube_centers = []
             
+            k1 = (reddots_calib[1][2]-reddots_calib[0][2])/(reddots_calib[1][1]-reddots_calib[0][1])
+            y1 = reddots_calib[0][1]
+            z1 = reddots_calib[0][2]
+
+            def get_z_from_laser(ty):
+                return (ty-y1)*k1+z1
+
+            
+
             for i in range(ellipses_amount):
                 angle_offsets.append([])
                 reddots.append([])
                 radiuses.append([])
                 tube_bounds_y = [random.uniform(1.9,2.1),random.uniform(2.9,3.1)]
-                tube_centers.append([0,np.abs(tube_bounds_y[1]-tube_bounds_y[0]), r])
+                tube_centers.append([])
                 for j in range(radiuses_amount):
-                    tmp_y = random.uniform(0.4,0.6)
-                    reddots[i].append([[0,0,0], [0, tmp_y, (tmp_y-reddots_calib[0][1])*(reddots_calib[1][2]-reddots_calib[0][2])/(reddots_calib[1][1]-reddots_calib[0][1])+reddots_calib[0][2]]])
-                    angle_offsets[i].append(np.arctan(reddots[i][j][1][2]/(reddots[i][j][1][1]-tube_centers[i][1])))
+                    tmp_y = random.uniform(0.4,0.6)              #(y-y1)*(z2-z1))/(y2-y1) + z1
+                    reddots[i].append([[0,0,0], [0, tmp_y, get_z_from_laser(tmp_y)]])
+                    #0,np.abs(tube_bounds_y[1]-tube_bounds_y[0]), r
+                    tube_centers[i].append([[0, np.abs(tube_bounds_y[1]-tube_bounds_y[0]), get_z_from_laser(np.abs(tube_bounds_y[1]-tube_bounds_y[0]))]])
+
+                    #angle_offsets[i].append(np.arctan((reddots[i][j][1][2]-r)/(reddots[i][j][1][1]-tube_centers[i][1])))
                     radiuses[i].append(np.sqrt((reddots[i][j][1][1]-tube_centers[i][1])**2+(tube_centers[i][2]-reddots[i][j][1][2])**2))
               
             radiuses_axes_ellipse = []
@@ -579,7 +604,7 @@ class MainWindow(QMainWindow):
                 points = []
 
                 for j in range(radiuses_amount):
-                    theta = angle_offsets[i][j]*180/np.pi + j*(360/radiuses_amount)
+                    theta = j*(360/radiuses_amount)
                     theta *= np.pi/180.0
                     tmp_x = 0+np.cos(theta)*radiuses[i][j]
                     tmp_y = 0-np.sin(theta)*radiuses[i][j]
@@ -661,8 +686,8 @@ class MainWindow(QMainWindow):
                 #ell_patch = Ellipse((xc, yc), 2*a, 2*b, theta*180/np.pi, edgecolor='red', facecolor='none')
                 #axs[i][j].add_patch(ell_patch)
 
-                poligon_patch = mPolygon(np.array(polygons_points[i]).T, color = 'tab:red', alpha = 0.5)
-                self.axes[i].add_patch(poligon_patch)
+                poligon_patch = mPolygon(np.array(polygons_points[i]).T, color = 'red', alpha = 0.5)
+                #self.axes[i].add_patch(poligon_patch)
 
                 ellipse1 = create_ellipse((y_centers_curve[i], z_centers_curve[i]),(radiuses_axes_ellipse[i][0],radiuses_axes_ellipse[i][1]),angles_axes_ellipse[i])
                 verts1 = np.array(ellipse1.exterior.coords.xy)
@@ -672,31 +697,79 @@ class MainWindow(QMainWindow):
                 #axs1[i][j].add_patch(ell_patch)
                 dist = math.hypot(y_centers_curve[i] - y_centers_straight[i], z_centers_curve[i] - z_centers_straight[i])
                 print("расстояние между центрами: ", dist, end='')
-                if (dist < 0.05):
+                if (dist < r*0.1):
                     print(" < 0.05")
                 dist = 0
                 for k in range(len(polygons_points[i][0])):
-                    dist = math.hypot(y_centers_straight[i] - polygons_points[i][0][k], z_centers_straight[i] - polygons_points[i][1][k])-0.5
+                    dist = math.hypot(y_centers_straight[i] - polygons_points[i][0][k], z_centers_straight[i] - polygons_points[i][1][k])-r
                     
                     print(" расстояние от точки", k ,"до границы окружности (r=0.5): ", dist)
 
-                verts1 = [[verts1[0][i], verts1[1][i]] for i in range(len(verts1[0]))]
+                print("verts1_1", verts1)
 
-                circle1 = create_ellipse((y_centers_straight[i], z_centers_straight[i]),(0.5,0.5),0)
+                verts1 = [[verts1[0][i], verts1[1][i]] for i in range(len(verts1[0]))]
+                print("verts1_2", verts1)
+                circle1 = create_ellipse((y_centers_straight[i], z_centers_straight[i]),(r,r),0)
                 verts2 = np.array(circle1.exterior.coords.xy)
         
                 patch2 = mPolygon(verts2.T, color = 'tab:blue', alpha = 0.5)
-                self.axes[i].add_patch(patch2)
+                #self.axes[i].add_patch(patch2)
                 verts2 = [[verts2[0][j], verts2[1][j]] for j in range(len(verts2[0]))]
 
 
-                upper_limit = 0.55
+                upper_limit = r*1.1
+                lower_limit = r*0.9
+
+                
+
+                patches1 = [
+                    Wedge((y_centers_straight[i], z_centers_straight[i]), r, 0, 360, width=upper_limit-lower_limit, facecolor = 'tab:blue')  # Full ring
+                ]
+
+                path = patches1[0].get_path()
+                print(".to_polygons()", patches1[0].get_path().to_polygons()[0])
+
+                transform = patches1[0].get_transform()
+                print("transform", transform)
+                # Now apply the transform to the path
+                newpath = transform.transform_path(path)
+                print("newpath", newpath)
+                # Now you can use this
+                polygon = patches.PathPatch(newpath)
+                print("polygon", polygon)
+                patch2 = polygon
+
+                #patch2 = mPolygon( patches[i].get_path(), color = 'tab:pink', alpha = 0.5)
+                self.axes[i].add_patch(patch2)
+                
+
+                #p = PatchCollection(patches, alpha=0.4)
+
+                #p.set_array(np.array("tab:blue"))
+
+
+                #self.axes[i].add_collection(p)
+
+
+
+
+                circle3 = create_ellipse((tube_centers[0], tube_centers[1]),(0.1,0.1),0)
+                verts3 = np.array(circle3.exterior.coords.xy)
+                patch3 = mPolygon(verts3.T, facecolor = 'black', edgecolor = 'black', alpha = 0.5)
+                self.axes[i].add_patch(patch3)
+
+                circle3 = create_ellipse((y_centers_straight[i], z_centers_straight[i]),(lower_limit,lower_limit),0)
+                verts3 = np.array(circle3.exterior.coords.xy)
+                patch3 = mPolygon(verts3.T, facecolor = 'none', edgecolor = 'tab:green', alpha = 0.5)
+                self.axes[i].add_patch(patch3)
+
 
                 circle3 = create_ellipse((y_centers_straight[i], z_centers_straight[i]),(upper_limit,upper_limit),0)
                 verts3 = np.array(circle3.exterior.coords.xy)
-
                 patch3 = mPolygon(verts3.T, facecolor = 'none', edgecolor = 'tab:green', alpha = 0.5)
                 self.axes[i].add_patch(patch3)
+
+
                 verts3 = [[verts3[0][i], verts3[1][i]] for i in range(len(verts3[0]))]
 
                 io_points = []
@@ -709,7 +782,7 @@ class MainWindow(QMainWindow):
                     elif (checkpoint(y_centers_straight[i], z_centers_straight[i], polygons_points[i][0][k], polygons_points[i][1][k], upper_limit, upper_limit) == 1): 
                         print (1, end = '') 
                         io_points.append(1)
-                    else: 
+                    elif (checkpoint(y_centers_straight[i], z_centers_straight[i], polygons_points[i][0][k], polygons_points[i][1][k], upper_limit, upper_limit) < 1 and checkpoint(y_centers_straight[i], z_centers_straight[i], polygons_points[i][0][k], polygons_points[i][1][k], lower_limit, lower_limit) == 1): 
                         print (1, end = '') 
                         io_points.append(1)
                 print()
@@ -725,7 +798,7 @@ class MainWindow(QMainWindow):
 
                 try:
                     coords_xy_1 = sPolygon(verts1)
-                    coords_xy_2 = sPolygon(verts2)
+                    coords_xy_2 = sPolygon(patches1[0].get_path().to_polygons()[0])
                     ##the intersect will be outlined in black
                     intersect = coords_xy_1.intersection(coords_xy_2)
 
@@ -758,6 +831,104 @@ class MainWindow(QMainWindow):
 
                 self.horizontalLayouts[i].addWidget(self.plotWidget)
                 self.ui.horizontalLayout_10.addWidget(self.frames[i])
+
+
+    def camera(self):
+        number_of_images_to_grab = 1
+        try:
+            # Initialize StApi before using.
+            st.initialize()
+
+            # Initialize converter
+            st_converter = st.create_converter(st.EStConverterType.PixelFormat)
+            st_converter.destination_pixel_format = \
+                st.EStPixelFormatNamingConvention.BGR8
+
+            # Create a system object for device scan and connection.
+            st_system = st.create_system()
+
+            # Connect to first detected device.
+            st_device = st_system.create_first_device()
+
+            # Display DisplayName of the device.
+            print('Device=', st_device.info.display_name)
+
+            # Create a datastream object for handling image stream data.
+            st_datastream = st_device.create_datastream()
+
+            do_cycle = True
+            while do_cycle:
+                # Start the image acquisition of the host (local machine) side.
+                st_datastream.start_acquisition(number_of_images_to_grab)
+
+                # Start the image acquisition of the camera side.
+                st_device.acquisition_start()
+
+                # A while loop for acquiring data and checking status
+                while st_datastream.is_grabbing:
+                    # Create a localized variable st_buffer using 'with'
+                    # Warning: if st_buffer is in a global scope, st_buffer must be
+                    #          assign to None to allow Garbage Collector release the buffer
+                    #          properly.
+                    image_flag = 0
+                    with st_datastream.retrieve_buffer() as st_buffer:
+                        # Check if the acquired data contains image data.
+                        if st_buffer.info.is_image_present:
+                            # Create an image object.
+                            st_image = st_buffer.get_image()
+
+                            # Display the information of the acquired image data.
+                            print("BlockID={0} Size={1} x {2} First Byte={3}".format(
+                                st_buffer.info.frame_id,
+                                st_image.width, st_image.height,
+                                st_image.get_image_data()[0]))
+
+                            # Convert image and get the NumPy array.
+                            st_image = st_converter.convert(st_image)
+                            data = st_image.get_image_data()
+                            nparr = np.frombuffer(data, np.uint8)
+                            nparr = nparr.reshape(st_image.height, st_image.width, 3)
+                            frame = nparr
+                            image_flag = 1                
+                        else:
+                            # If the acquired data contains no image data.
+                            print("Image data does not exist.")
+
+                    if image_flag == 1:
+                        #t = time.process_time()
+                        #cv2.imshow("out", frame)
+
+                        # rgbImage = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                        # h, w, ch = rgbImage.shape
+                        # bytesPerLine = ch * w
+                        # convertToQtFormat = QImage(rgbImage.data, w, h, bytesPerLine, QImage.Format_RGB888)
+                        # p = convertToQtFormat.scaled(640, 480, Qt.KeepAspectRatio)
+                        # self.changePixmap.emit(p)
+
+
+                        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                        image = qimage2ndarray.array2qimage(frame)
+                        self.ui.camera_frames.setPixmap(QPixmap.fromImage(image))
+
+
+                        #label = QLabel(self)
+                        #pixmap = QPixmap(frame)
+                        #self.ui.camera_frames.setPixmap(pixmap)
+                        
+                        key = cv2.waitKey(500)
+                        if (key == 27):
+                            st_device.acquisition_stop()
+                            st_datastream.stop_acquisition()
+                            do_cycle = False
+
+                # Stop the image acquisition of the camera side
+                st_device.acquisition_stop()
+
+                # Stop the image acquisition of the host side
+                st_datastream.stop_acquisition()
+
+        except Exception as exception:
+            print(exception)
 
 
 

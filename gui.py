@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowKNAOdB.ui'
+## Form generated from reading UI file 'MainWindowHbTZXG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.1
 ##
@@ -17,8 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 591)
-        MainWindow.setMaximumSize(QSize(1826, 821))
+        MainWindow.resize(835, 796)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -453,16 +452,22 @@ class Ui_MainWindow(object):
 
         self.scrollArea = QScrollArea(self.frame)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setMinimumSize(QSize(0, 250))
+        self.scrollArea.setMinimumSize(QSize(0, 350))
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 758, 248))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 758, 348))
         self.horizontalLayout_10 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.gridLayout_4.addWidget(self.scrollArea, 0, 0, 1, 3)
+
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setFrameShape(QFrame.Box)
+
+        self.gridLayout_4.addWidget(self.label, 1, 0, 1, 1)
 
 
         self.verticalLayout_13.addWidget(self.frame)
@@ -476,62 +481,74 @@ class Ui_MainWindow(object):
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
-        self.pushButton = QPushButton(self.frame_11)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(50, 70, 131, 81))
-        self.graphicsView = QGraphicsView(self.frame_11)
-        self.graphicsView.setObjectName(u"graphicsView")
-        self.graphicsView.setGeometry(QRect(270, 30, 256, 192))
+        self.gridLayout_8 = QGridLayout(self.frame_11)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.camera_frames = QLabel(self.frame_11)
+        self.camera_frames.setObjectName(u"camera_frames")
+        self.camera_frames.setMinimumSize(QSize(0, 0))
+        self.camera_frames.setPixmap(QPixmap(u"../stapi/curve.jpg"))
+        self.camera_frames.setScaledContents(False)
+        self.camera_frames.setAlignment(Qt.AlignCenter)
+        self.camera_frames.setWordWrap(False)
+        self.camera_frames.setIndent(-1)
+        self.camera_frames.setOpenExternalLinks(False)
+        self.camera_frames.setTextInteractionFlags(Qt.NoTextInteraction)
 
-        self.verticalLayout_14.addWidget(self.frame_11)
+        self.gridLayout_8.addWidget(self.camera_frames, 0, 0, 1, 3)
 
-        self.frame_10 = QFrame(self.calibration_page)
-        self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_22 = QVBoxLayout(self.frame_10)
-        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.frame_12 = QFrame(self.frame_10)
-        self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setFrameShape(QFrame.StyledPanel)
-        self.frame_12.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_23 = QVBoxLayout(self.frame_12)
-        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
-        self.label_4 = QLabel(self.frame_12)
+        self.verticalSpacer_7 = QSpacerItem(20, 58, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_7, 1, 1, 1, 1)
+
+        self.horizontalSpacer_7 = QSpacerItem(792, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_7, 2, 0, 1, 1)
+
+        self.gridLayout_7 = QGridLayout()
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.label_4 = QLabel(self.frame_11)
         self.label_4.setObjectName(u"label_4")
 
-        self.verticalLayout_23.addWidget(self.label_4)
+        self.gridLayout_7.addWidget(self.label_4, 0, 0, 1, 1)
 
-
-        self.verticalLayout_22.addWidget(self.frame_12)
-
-        self.frame_13 = QFrame(self.frame_10)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setFrameShape(QFrame.StyledPanel)
-        self.frame_13.setFrameShadow(QFrame.Raised)
-        self.label_18 = QLabel(self.frame_13)
+        self.label_18 = QLabel(self.frame_11)
         self.label_18.setObjectName(u"label_18")
-        self.label_18.setGeometry(QRect(10, 20, 49, 16))
-        self.textEdit = QTextEdit(self.frame_13)
-        self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setGeometry(QRect(70, 10, 51, 31))
-        self.label_19 = QLabel(self.frame_13)
-        self.label_19.setObjectName(u"label_19")
-        self.label_19.setGeometry(QRect(130, 20, 16, 16))
-        self.textEdit_2 = QTextEdit(self.frame_13)
-        self.textEdit_2.setObjectName(u"textEdit_2")
-        self.textEdit_2.setGeometry(QRect(70, 50, 51, 31))
-        self.label_20 = QLabel(self.frame_13)
+
+        self.gridLayout_7.addWidget(self.label_18, 1, 0, 1, 1)
+
+        self.lineEdit_8 = QLineEdit(self.frame_11)
+        self.lineEdit_8.setObjectName(u"lineEdit_8")
+
+        self.gridLayout_7.addWidget(self.lineEdit_8, 1, 1, 1, 1)
+
+        self.label_20 = QLabel(self.frame_11)
         self.label_20.setObjectName(u"label_20")
-        self.label_20.setGeometry(QRect(10, 60, 49, 16))
-        self.label_21 = QLabel(self.frame_13)
-        self.label_21.setObjectName(u"label_21")
-        self.label_21.setGeometry(QRect(130, 60, 16, 16))
 
-        self.verticalLayout_22.addWidget(self.frame_13)
+        self.gridLayout_7.addWidget(self.label_20, 2, 0, 1, 1)
+
+        self.lineEdit_4 = QLineEdit(self.frame_11)
+        self.lineEdit_4.setObjectName(u"lineEdit_4")
+
+        self.gridLayout_7.addWidget(self.lineEdit_4, 2, 1, 1, 1)
+
+        self.pushButton = QPushButton(self.frame_11)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.gridLayout_7.addWidget(self.pushButton, 3, 0, 1, 2)
 
 
-        self.verticalLayout_14.addWidget(self.frame_10)
+        self.gridLayout_8.addLayout(self.gridLayout_7, 2, 1, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(792, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_8, 2, 2, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 78, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_8, 3, 1, 1, 1)
+
+
+        self.verticalLayout_14.addWidget(self.frame_11)
 
         self.stackedWidget_2.addWidget(self.calibration_page)
 
@@ -547,7 +564,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_2.setCurrentIndex(2)
+        self.stackedWidget_2.setCurrentIndex(3)
         self.stackedWidget.setCurrentIndex(1)
 
 
@@ -587,11 +604,12 @@ class Ui_MainWindow(object):
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"10 \u0448\u0442", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"R = 3 \u043c", None))
         self.label_27.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><div>\u041a\u0440\u0430\u0441\u043d\u044b\u0439 \u043f\u043e\u043b\u0438\u0433\u043e\u043d: \u043f\u0440\u0438\u043c\u0435\u0440\u043d\u044b\u0439 \u043f\u043e\u043b\u0438\u0433\u043e\u043d \u0438\u0437 \u0438\u0437\u043c\u0435\u0440\u0435\u043d\u043d\u044b\u0445 \u0440\u0430\u0434\u0438\u0443\u0441\u043e\u0432</div><div>\u041e\u0440\u0430\u043d\u0436\u0435\u0432\u044b\u0439 \u044d\u043b\u043b\u0438\u043f\u0441: \u0430\u043f\u043f\u0440\u043e\u043a\u0441\u0438\u043c\u0430\u0446\u0438\u044f \u043a\u0440\u0430\u0441\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u0438\u0433\u043e\u043d\u0430</div><div>\u0421\u0438\u043d\u0438\u0439 \u044d\u043b\u043b\u0438\u043f\u0441: \u0438\u0434\u0435\u0430\u043b\u044c\u043d\u044b\u0439 \u0441\u0440\u0435\u0437 \u0442\u0440\u0443\u0431\u043a\u0438</div><div>\u0417\u0435\u043b\u0451\u043d\u044b\u0439 \u043a\u0440\u0443\u0433: \u0432\u0435\u0440\u0445\u043d\u044f\u044f \u0433\u0440\u0430\u043d\u0438\u0446\u0430 \u043f\u043e\u0440\u043e\u0433\u0430</div></body></h"
+                        "tml>", None))
+        self.camera_frames.setText("")
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u044b\u0441\u043e\u0442\u0443", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"\u0412 \u0442\u043e\u0447\u043a\u0435 A", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"\u043c\u043c", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"\u0412 \u0442\u043e\u0447\u043a\u0435 B", None))
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u043c\u043c", None))
+        self.label_18.setText(QCoreApplication.translate("MainWindow", u"\u0412 \u0442\u043e\u0447\u043a\u0435 A(\u043c\u043c)", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"\u0412 \u0442\u043e\u0447\u043a\u0435 B(\u043c\u043c)", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0434\u0435\u043b\u0430\u0442\u044c \u0444\u043e\u0442\u043e", None))
     # retranslateUi
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>835</width>
-    <height>796</height>
+    <height>955</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -177,7 +177,7 @@ QPushButton:hover {
           <item>
            <widget class="QStackedWidget" name="stackedWidget_2">
             <property name="currentIndex">
-             <number>3</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="start_page">
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -253,7 +253,7 @@ QPushButton:hover {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_21">
+                   <layout class="QHBoxLayout" name="horizontalLayout">
                     <property name="spacing">
                      <number>1</number>
                     </property>
@@ -312,6 +312,29 @@ QPushButton:hover {
                       </property>
                       <property name="text">
                        <string>Оценка</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="debug_btn">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 35, 35);
+	border: 0px solid;
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Отладка</string>
                       </property>
                      </widget>
                     </item>
@@ -599,6 +622,29 @@ QPushButton:hover {
                      </item>
                     </layout>
                    </widget>
+                   <widget class="QWidget" name="debug_page">
+                    <layout class="QVBoxLayout" name="verticalLayout_4">
+                     <item>
+                      <widget class="QFrame" name="frame_2">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_9">
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_19">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                   </widget>
                  </item>
                 </layout>
@@ -790,7 +836,7 @@ QPushButton:hover {
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>758</width>
+                      <width>793</width>
                       <height>348</height>
                      </rect>
                     </property>

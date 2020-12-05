@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowHbTZXG.ui'
+## Form generated from reading UI file 'MainWindowoZzDVa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.1
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(835, 796)
+        MainWindow.resize(835, 955)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -121,10 +121,10 @@ class Ui_MainWindow(object):
         self.frame_29.setMaximumSize(QSize(16777215, 40))
         self.frame_29.setFrameShape(QFrame.StyledPanel)
         self.frame_29.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_21 = QHBoxLayout(self.frame_29)
-        self.horizontalLayout_21.setSpacing(1)
-        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.horizontalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout = QHBoxLayout(self.frame_29)
+        self.horizontalLayout.setSpacing(1)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.connection_btn = QPushButton(self.frame_29)
         self.connection_btn.setObjectName(u"connection_btn")
         self.connection_btn.setMinimumSize(QSize(0, 40))
@@ -137,7 +137,7 @@ class Ui_MainWindow(object):
 "	background-color: rgb(85, 170, 255);\n"
 "}")
 
-        self.horizontalLayout_21.addWidget(self.connection_btn)
+        self.horizontalLayout.addWidget(self.connection_btn)
 
         self.score_btn = QPushButton(self.frame_29)
         self.score_btn.setObjectName(u"score_btn")
@@ -151,7 +151,21 @@ class Ui_MainWindow(object):
 "	background-color: rgb(85, 170, 255);\n"
 "}")
 
-        self.horizontalLayout_21.addWidget(self.score_btn)
+        self.horizontalLayout.addWidget(self.score_btn)
+
+        self.debug_btn = QPushButton(self.frame_29)
+        self.debug_btn.setObjectName(u"debug_btn")
+        self.debug_btn.setMinimumSize(QSize(0, 40))
+        self.debug_btn.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"	background-color: rgb(35, 35, 35);\n"
+"	border: 0px solid;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.debug_btn)
 
 
         self.verticalLayout_17.addWidget(self.frame_29)
@@ -341,6 +355,25 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.addWidget(self.frame_15)
 
         self.stackedWidget.addWidget(self.score_page)
+        self.debug_page = QWidget()
+        self.debug_page.setObjectName(u"debug_page")
+        self.verticalLayout_4 = QVBoxLayout(self.debug_page)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.frame_2 = QFrame(self.debug_page)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.gridLayout_9 = QGridLayout(self.frame_2)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.label_19 = QLabel(self.frame_2)
+        self.label_19.setObjectName(u"label_19")
+
+        self.gridLayout_9.addWidget(self.label_19, 0, 0, 1, 1)
+
+
+        self.verticalLayout_4.addWidget(self.frame_2)
+
+        self.stackedWidget.addWidget(self.debug_page)
 
         self.verticalLayout_17.addWidget(self.stackedWidget)
 
@@ -456,7 +489,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 758, 348))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 793, 348))
         self.horizontalLayout_10 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
@@ -500,6 +533,14 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addItem(self.verticalSpacer_7, 1, 1, 1, 1)
 
+        self.verticalSpacer_8 = QSpacerItem(20, 78, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_8.addItem(self.verticalSpacer_8, 3, 1, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(792, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_8.addItem(self.horizontalSpacer_8, 2, 2, 1, 1)
+
         self.horizontalSpacer_7 = QSpacerItem(792, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_8.addItem(self.horizontalSpacer_7, 2, 0, 1, 1)
@@ -539,14 +580,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addLayout(self.gridLayout_7, 2, 1, 1, 1)
 
-        self.horizontalSpacer_8 = QSpacerItem(792, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_8.addItem(self.horizontalSpacer_8, 2, 2, 1, 1)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 78, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_8.addItem(self.verticalSpacer_8, 3, 1, 1, 1)
-
 
         self.verticalLayout_14.addWidget(self.frame_11)
 
@@ -564,7 +597,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_2.setCurrentIndex(3)
+        self.stackedWidget_2.setCurrentIndex(2)
         self.stackedWidget.setCurrentIndex(1)
 
 
@@ -578,6 +611,7 @@ class Ui_MainWindow(object):
         self.settings_btn.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.connection_btn.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435", None))
         self.score_btn.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0446\u0435\u043d\u043a\u0430", None))
+        self.debug_btn.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043b\u0430\u0434\u043a\u0430", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"IP \u043a\u0430\u043c\u0435\u0440\u044b", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"\u0423\u0433\u043e\u043b \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0430 \u043c\u0435\u0436\u0434\u0443 \u043a\u0430\u0434\u0440\u0430\u043c\u0438", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0438\u0433\u043d\u0430\u043b \u043d\u0430 \u043d\u0430\u0447\u0430\u043b\u043e \u0441\u044a\u0451\u043c\u043a\u0438, \u043f\u0438\u043d \u2116", None))
@@ -590,6 +624,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0434\u0438\u0443\u0441", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u0422\u043e\u0447\u043a\u0430 1", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"\u0422\u043e\u0447\u043a\u0430 2", None))
+        self.label_19.setText("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0438\u0430\u043c\u0435\u0442\u0440", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"80%", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0432\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c", None))

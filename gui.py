@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'MainWindowoZzDVa.ui'
+## Form generated from reading UI file 'MainWindowbgQavh.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.1
+## Created by: Qt User Interface Compiler version 6.0.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(835, 955)
+        MainWindow.resize(835, 963)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -365,10 +365,10 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_9 = QGridLayout(self.frame_2)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.label_19 = QLabel(self.frame_2)
-        self.label_19.setObjectName(u"label_19")
+        self.MplWidget = QWidget(self.frame_2)
+        self.MplWidget.setObjectName(u"MplWidget")
 
-        self.gridLayout_9.addWidget(self.label_19, 0, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.MplWidget, 0, 0, 1, 1)
 
 
         self.verticalLayout_4.addWidget(self.frame_2)
@@ -597,8 +597,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget_2.setCurrentIndex(2)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -624,7 +624,6 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0434\u0438\u0443\u0441", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u0422\u043e\u0447\u043a\u0430 1", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"\u0422\u043e\u0447\u043a\u0430 2", None))
-        self.label_19.setText("")
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0438\u0430\u043c\u0435\u0442\u0440", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"80%", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0432\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c", None))
